@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">Aviaseils</string>
+
+    <string name="flight_search_title">Поиск авиабилетов</string>
+
+    <!-- Заголовки и подсказки для городов -->
+    <string name="departure_city_label">Город вылета</string>
+    <string name="arrival_city_label">Город прилёта</string>
+
+    <!-- Массив городов для выпадающих списков (Spinner) -->
+    <string-array name="cities_array">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Новосибирск</item>
+        <item>Екатеринбург</item>
+        <item>Казань</item>
+        <item>Сочи</item>
+        <item>Владивосток</item>
+        <item>Калининград</item>
+    </string-array>
+
+    <!-- Заголовок и поля дат -->
+    <string name="dates_title">Даты поездки</string>
+    <string name="departure_date_hint">Дата туда</string>
+    <string name="return_date_hint">Дата обратно</string>
+
+    <!-- Заголовок и поля пассажиров -->
+    <string name="passengers_title">Пассажиры</string>
+    <string name="adults_hint">Взрослые</string>
+    <string name="children_hint">Дети</string>
+    <string name="infants_hint">Младенцы</string>
+
+    <!-- Кнопка поиска -->
+    <string name="search_button_text">Найти билеты</string>
+
+    <!-- Сообщения валидации -->
+    <string name="error_same_cities">Город вылета и прилёта не могут совпадать</string>
+    <string name="error_no_departure_date">Пожалуйста, выберите дату вылета</string>
+    <string name="search_success_format">Поиск: %1$s ➔ %2$s\nТуда: %3$s%4$s\nПассажиров: %5$s</string>
 </resources>

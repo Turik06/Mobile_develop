@@ -5,15 +5,207 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".MainActivity">
 
+    <!-- Заголовок экрана -->
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/flight_search_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Метка: Город вылета -->
+    <TextView
+        android:id="@+id/tvDepartureCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/departure_city_label"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <!-- Выпадающий список: Город вылета -->
+    <Spinner
+        android:id="@+id/spinnerDeparture"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:entries="@array/cities_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDepartureCity" />
+
+    <!-- Метка: Город прилёта -->
+    <TextView
+        android:id="@+id/tvArrivalCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/arrival_city_label"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerDeparture" />
+
+    <!-- Выпадающий список: Город прилёта -->
+
+    <!-- Метка: Даты поездки -->
+    <Spinner
+        android:id="@+id/spinnerArrival"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:entries="@array/cities_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvArrivalCity" />
+
+    <TextView
+        android:id="@+id/tvDatesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/dates_title"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerArrival" />
+
+    <!-- Поле: Дата вылета (одинаковая ширина через 0dp и weight=1) -->
+    <EditText
+        android:id="@+id/etDepartureDate"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_input_field"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:drawableStart="@android:drawable/ic_menu_my_calendar"
+        android:drawablePadding="8dp"
+        android:focusable="false"
+        android:hint="@string/departure_date_hint"
+        android:inputType="none"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/etReturnDate"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDatesTitle" />
+
+    <!-- Поле: Дата обратно (одинаковая ширина через 0dp и weight=1) -->
+    <EditText
+        android:id="@+id/etReturnDate"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_input_field"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:drawableStart="@android:drawable/ic_menu_my_calendar"
+        android:drawablePadding="8dp"
+        android:focusable="false"
+        android:hint="@string/return_date_hint"
+        android:inputType="none"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/etDepartureDate"
+        app:layout_constraintTop_toBottomOf="@id/tvDatesTitle" />
+
+    <!-- Метка: Пассажиры -->
+    <TextView
+        android:id="@+id/tvPassengersTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/passengers_title"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etDepartureDate" />
+
+    <!-- Поле: Взрослые (одинаковая ширина 1/3 через 0dp и weight=1) -->
+    <EditText
+        android:id="@+id/etAdults"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/bg_input_field"
+        android:gravity="center"
+        android:hint="@string/adults_hint"
+        android:inputType="number"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/etChildren"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPassengersTitle" />
+
+    <!-- Поле: Дети (одинаковая ширина 1/3 через 0dp и weight=1) -->
+    <EditText
+        android:id="@+id/etChildren"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/bg_input_field"
+        android:gravity="center"
+        android:hint="@string/children_hint"
+        android:inputType="number"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/etInfants"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/etAdults"
+        app:layout_constraintTop_toBottomOf="@id/tvPassengersTitle" />
+
+    <!-- Поле: Младенцы (одинаковая ширина 1/3 через 0dp и weight=1) -->
+    <EditText
+        android:id="@+id/etInfants"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_input_field"
+        android:gravity="center"
+        android:hint="@string/infants_hint"
+        android:inputType="number"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/etChildren"
+        app:layout_constraintTop_toBottomOf="@id/tvPassengersTitle" />
+
+    <!-- Кнопка поиска -->
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/search_button_text"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etAdults" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
