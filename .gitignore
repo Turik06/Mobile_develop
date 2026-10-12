@@ -1,0 +1,49 @@
+# === Локальное окружение Kotlin ===
+.kotlinc/
+
+# === Скомпилированные файлы и артефакты ===
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# === Папки сборки ===
+build/
+**/build/
+bin/
+out/
+.kotlin/
+local.properties
+**/local.properties
+
+# === Gradle ===
+.gradle/
+**/.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# === IDE: IntelliJ IDEA / Android Studio ===
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# === IDE: VS Code ===
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# === Системные и временные файлы ===
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
