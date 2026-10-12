@@ -11,13 +11,13 @@
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal|numberSigned"
+        android:inputType="numberDecimal"
         android:id="@+id/numA"/>
     <EditText
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal|numberSigned"
+        android:inputType="numberDecimal"
         android:id="@+id/numB" />
  <TextView
      android:textSize="30sp"
