@@ -1,3 +1,3 @@
-![screenshot_default](screenshots/screenshot_default.png)
+![screenshot_1](screenshots/screenshot_1.png)
 
-![screenshot_example](screenshots/screenshot_example.png)
+![screenshot_2](screenshots/screenshot_2.png)
