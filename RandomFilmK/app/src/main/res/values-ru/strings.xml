@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">RandomFilmK</string>
+    <string name="app_title">Кинорулетка</string>
+    <string name="next">Следующий фильм</string>
+    <string name="reset">Начать заново</string>
+    <string name="movie_label">СЛУЧАЙНЫЙ ФИЛЬМ</string>
+    <string name="initial_hint">Нажмите «Следующий фильм», чтобы выбрать кино</string>
+    <string name="all_movies_shown">Все фильмы просмотрены! Нажмите «Начать заново».</string>
+    <string name="remaining_count">Осталось: %1$d из %2$d</string>
+    <string name="toggle_lang">EN</string>
+
+    <string-array name="movies">
+        <item>Начало</item>
+        <item>Интерстеллар</item>
+        <item>Шоу Трумана</item>
+        <item>Матрица</item>
+        <item>Маска</item>
+        <item>Побег из Шоушенка</item>
+        <item>Зеленая миля</item>
+        <item>Бойцовский клуб</item>
+        <item>Форрест Гамп</item>
+        <item>Криминальное чтиво</item>
+    </string-array>
+</resources>

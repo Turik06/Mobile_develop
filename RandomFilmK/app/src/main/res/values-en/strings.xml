@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">RandomFilmK</string>
+    <string name="app_title">Movie Roulette</string>
+    <string name="next">Next Movie</string>
+    <string name="reset">Reset</string>
+    <string name="movie_label">RANDOM MOVIE</string>
+    <string name="initial_hint">Press \"Next Movie\" to pick a film</string>
+    <string name="all_movies_shown">All movies have been shown! Press \"Reset\" to restart.</string>
+    <string name="remaining_count">Remaining: %1$d of %2$d</string>
+    <string name="toggle_lang">RU</string>
+
+    <string-array name="movies">
+        <item>Inception</item>
+        <item>Interstellar</item>
+        <item>The Truman Show</item>
+        <item>The Matrix</item>
+        <item>The Mask</item>
+        <item>The Shawshank Redemption</item>
+        <item>The Green Mile</item>
+        <item>Fight Club</item>
+        <item>Forrest Gump</item>
+        <item>Pulp Fiction</item>
+    </string-array>
+</resources>

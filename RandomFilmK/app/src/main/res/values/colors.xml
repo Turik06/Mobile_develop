@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1E293B</color>
+    <color name="primary_variant">#0F172A</color>
+    <color name="secondary">#3B82F6</color>
+    <color name="secondary_variant">#2563EB</color>
+    <color name="accent_gold">#F59E0B</color>
+    <color name="background_light">#F8FAFC</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="btn_reset_bg">#EF4444</color>
+    <color name="btn_reset_pressed">#DC2626</color>
+</resources>
