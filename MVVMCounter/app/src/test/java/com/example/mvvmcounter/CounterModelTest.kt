@@ -1,6 +1,5 @@
 package com.example.mvvmcounter
 
-import com.example.mvvmcounter.model.CounterModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

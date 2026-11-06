@@ -1,82 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    tools:context=".view.MainActivity">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
-    <!-- Заголовок -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvCounter"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <!-- Значение счётчика -->
     <TextView
         android:id="@+id/tvCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:text="0"
-        android:textSize="96sp"
-        android:textStyle="bold"
-        android:textColor="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintBottom_toTopOf="@id/btnDecrement" />
+        android:textSize="64sp" />
 
-    <!-- Кнопка - -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnDecrement"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:text="@string/btn_decrement"
-        android:textSize="32sp"
-        android:layout_marginTop="40dp"
-        app:cornerRadius="40dp"
-        app:layout_constraintEnd_toStartOf="@id/btnReset"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCounter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <!-- Кнопка Сброс -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnReset"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:text="@string/btn_reset"
-        android:textSize="14sp"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        app:cornerRadius="40dp"
-        app:layout_constraintEnd_toStartOf="@id/btnIncrement"
-        app:layout_constraintStart_toEndOf="@id/btnDecrement"
-        app:layout_constraintTop_toTopOf="@id/btnDecrement"
-        app:layout_constraintBottom_toBottomOf="@id/btnDecrement" />
+        <Button
+            android:id="@+id/btnMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="-"
+            android:textSize="20sp" />
 
-    <!-- Кнопка + -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnIncrement"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:text="@string/btn_increment"
-        android:textSize="32sp"
-        app:cornerRadius="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnReset"
-        app:layout_constraintTop_toTopOf="@id/btnDecrement"
-        app:layout_constraintBottom_toBottomOf="@id/btnDecrement" />
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Сброс" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
