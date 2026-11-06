@@ -2,6 +2,10 @@
 
 Простое Android-приложение «Счётчик», реализованное с использованием архитектурного паттерна **MVVM (Model-View-ViewModel)** и компонентов Android Jetpack (`ViewModel`, `LiveData`, `ViewBinding`).
 
+## Скриншот работы приложения
+
+![Счётчик MVVM](screenshots/screenshot_counter.png)
+
 ## Архитектура приложения
 
 Приложение чётко разделено на три слоя в соответствии с шаблоном MVVM:
