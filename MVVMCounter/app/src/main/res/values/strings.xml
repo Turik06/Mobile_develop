@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MVVM Counter</string>
+    <string name="title">Счётчик (MVVM)</string>
+    <string name="btn_increment">+</string>
+    <string name="btn_decrement">−</string>
+    <string name="btn_reset">C</string>
+</resources>
