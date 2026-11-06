@@ -1,4 +1,4 @@
-# CurrentWeatherDataBinding (Отображение погоды с помощью Data Binding)
+# CurrentWeatherDataBinding
 
 Android-приложение для просмотра погоды с использованием сервиса **OpenWeatherMap API**, механизма **Data Binding**, корутин Kotlin и парсинга JSON через **Gson**.
 
