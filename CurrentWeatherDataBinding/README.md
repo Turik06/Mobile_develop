@@ -4,7 +4,7 @@ Android-приложение для просмотра погоды с испо�
 
 ## Скриншот работы приложения
 
-![Работа приложения](screenshots/screenshot_weather.png)
+![Работа приложения](screenshots/screenshot_app.png)
 
 ## Особенности реализации
 
