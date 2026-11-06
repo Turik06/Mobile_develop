@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CurrentWeatherDataBinding</string>
+    <string name="weather_title">Погода сейчас</string>
+    <string name="city_label">Выберите город</string>
+    <string name="refresh">Обновить погоду</string>
+    <string name="loading">Загрузка погоды…</string>
+    <string name="open_weather_api_key">d6843ab8ee963f5d372296dfff62aed7</string>
+    <string name="api_key_missing">Ключ OpenWeatherMap не настроен.</string>
+    <string name="api_key_invalid">Ключ OpenWeatherMap недействителен или ещё не активирован.</string>
+    <string name="city_not_found">Город не найден.</string>
+    <string name="server_error">Не удалось получить погоду. Попробуйте позже.</string>
+    <string name="network_error">Проверьте подключение к интернету и повторите попытку.</string>
+    <string name="invalid_response">Сервис вернул некорректные данные.</string>
+    <string name="temperature">%1$.0f °C</string>
+    <string-array name="cities">
+        <item>Иркутск</item>
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Новосибирск</item>
+        <item>Красноярск</item>
+        <item>Улан-Удэ</item>
+    </string-array>
+</resources>

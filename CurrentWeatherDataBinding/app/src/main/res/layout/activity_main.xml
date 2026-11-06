@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+        <variable name="activity" type="com.example.currentweatherdatabinding.MainActivity" />
+        <variable name="weather" type="com.example.currentweatherdatabinding.Weather" />
+        <variable name="loading" type="boolean" />
+        <variable name="message" type="String" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:accessibilityHeading="true"
+                android:text="@string/weather_title"
+                android:textSize="28sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/cities"
+                android:text="@string/city_label" />
+
+            <Spinner
+                android:id="@+id/cities"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:enabled="@{!loading}" />
+
+            <Button
+                android:id="@+id/refresh_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:enabled="@{!loading}"
+                android:onClick="@{() -> activity.loadWeather()}"
+                android:text="@string/refresh" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:accessibilityLiveRegion="polite"
+                android:text="@string/loading"
+                android:visibility="@{loading ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:accessibilityLiveRegion="polite"
+                android:text="@{message}"
+                android:textColor="#D32F2F"
+                android:visibility="@{message != null ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:id="@+id/weather_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@{weather.city}"
+                android:textSize="24sp"
+                android:visibility="@{weather != null ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{@string/temperature(weather.temperature)}"
+                android:textSize="48sp"
+                android:visibility="@{weather != null ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{weather.description}"
+                android:textSize="20sp"
+                android:visibility="@{weather != null ? View.VISIBLE : View.GONE}" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
