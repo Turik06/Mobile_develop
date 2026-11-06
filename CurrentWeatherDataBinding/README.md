@@ -2,6 +2,10 @@
 
 Android-приложение для просмотра погоды с использованием сервиса **OpenWeatherMap API**, механизма **Data Binding**, корутин Kotlin и парсинга JSON через **Gson**.
 
+## Скриншот работы приложения
+
+![Работа приложения](screenshots/screenshot_weather.png)
+
 ## Особенности реализации
 
 * **Data Binding**: разметка `activity_main.xml` обёрнута в тег `<layout>` и использует блок `<data>` с переменными `activity`, `weather`, `loading`, `message`.
