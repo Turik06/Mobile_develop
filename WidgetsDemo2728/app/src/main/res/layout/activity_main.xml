@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
         tools:context=".MainActivity">
 
         <LinearLayout
@@ -19,33 +17,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/weather_title"
-                android:textSize="26sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="?android:attr/textColorPrimary"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Выбор города через Spinner -->
+            <!-- Выбор города (Spinner) -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/select_city_label"
-                android:textSize="14sp"
-                android:textColor="?android:attr/textColorSecondary"
                 android:layout_marginBottom="4dp" />
 
             <Spinner
                 android:id="@+id/citySpinner"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="16dp" />
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_marginBottom="12dp" />
 
-            <!-- Выбор шкалы температуры через RadioGroup и RadioButton -->
+            <!-- Шкала температуры (RadioGroup) -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/temp_scale_label"
-                android:textSize="14sp"
-                android:textColor="?android:attr/textColorSecondary"
                 android:layout_marginBottom="4dp" />
 
             <RadioGroup
@@ -61,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/scale_celsius"
                     android:checked="true"
-                    android:layout_marginEnd="20dp" />
+                    android:layout_marginEnd="16dp" />
 
                 <RadioButton
                     android:id="@+id/rbFahrenheit"
@@ -70,14 +64,14 @@
                     android:text="@string/scale_fahrenheit" />
             </RadioGroup>
 
-            <!-- Отображение направления ветра через CheckBox -->
+            <!-- Чекбокс направления ветра -->
             <CheckBox
                 android:id="@+id/cbWindDirection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/show_wind_direction"
                 android:checked="true"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="12dp" />
 
             <!-- Кнопка обновления -->
             <Button
@@ -85,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/refresh"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="12dp" />
 
             <!-- Индикатор загрузки -->
             <ProgressBar
@@ -94,87 +88,59 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:visibility="gone"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="12dp" />
 
-            <!-- Карточка с отображением погоды -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/weatherCard"
+            <!-- Отображение сведений о погоде -->
+            <TextView
+                android:id="@+id/tvCityName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="#DDDDDD"
-                app:cardBackgroundColor="?android:attr/colorBackground">
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                tools:text="Иркутск" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+            <TextView
+                android:id="@+id/tvTemperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"
+                tools:text="-3 °C" />
 
-                    <TextView
-                        android:id="@+id/tvCityName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="?android:attr/textColorPrimary"
-                        tools:text="Иркутск" />
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="4dp"
+                tools:text="Ясно" />
 
-                    <TextView
-                        android:id="@+id/tvTemperature"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="44sp"
-                        android:textStyle="bold"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:layout_marginTop="4dp"
-                        tools:text="-3 °C" />
+            <TextView
+                android:id="@+id/tvWindSpeed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginTop="12dp"
+                tools:text="Скорость ветра: 2.0 м/с" />
 
-                    <TextView
-                        android:id="@+id/tvDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="?android:attr/textColorSecondary"
-                        android:layout_marginTop="4dp"
-                        tools:text="Ясно" />
+            <TextView
+                android:id="@+id/tvWindDirection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginTop="4dp"
+                tools:text="Направление ветра: Северо-западный (СЗ), 315°" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp" />
-
-                    <TextView
-                        android:id="@+id/tvWindSpeed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary"
-                        tools:text="Скорость ветра: 2.0 м/с" />
-
-                    <TextView
-                        android:id="@+id/tvWindDirection"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:layout_marginTop="6dp"
-                        tools:text="Направление ветра: Северо-западный (СЗ), 315°" />
-
-                    <TextView
-                        android:id="@+id/tvDataSource"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="#558B2F"
-                        android:layout_marginTop="16dp"
-                        tools:text="Источник: OpenWeatherMap API" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/tvDataSource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#558B2F"
+                android:layout_marginTop="12dp"
+                tools:text="Локальный JSON" />
 
         </LinearLayout>
     </ScrollView>
