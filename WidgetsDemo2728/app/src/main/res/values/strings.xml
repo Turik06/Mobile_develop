@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Weather Widgets</string>
+    <string name="weather_title">Погода</string>
+    <string name="select_city_label">Выберите город</string>
+    <string name="temp_scale_label">Шкала температуры</string>
+    <string name="scale_celsius">°C (Цельсий)</string>
+    <string name="scale_fahrenheit">°F (Фаренгейт)</string>
+    <string name="show_wind_direction">Показывать направление ветра</string>
+    <string name="wind_speed_text">Скорость ветра: %.1f м/с</string>
+    <string name="wind_direction_text">Направление ветра: %s</string>
+    <string name="refresh">Обновить</string>
+    <string name="loading">Загрузка погоды…</string>
+    <string name="source_api">Источник: OpenWeatherMap API</string>
+    <string name="source_local">Источник: локальный JSON файл</string>
+    <string name="open_weather_api_key">d6843ab8ee963f5d372296dfff62aed7</string>
+
+    <string-array name="cities">
+        <item>Иркутск</item>
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Новосибирск</item>
+        <item>Красноярск</item>
+        <item>Сочи</item>
+        <item>Владивосток</item>
+    </string-array>
+</resources>

@@ -1,0 +1,44 @@
+{
+  "Иркутск": {
+    "temperature": -3.0,
+    "description": "ясно",
+    "windSpeed": 2.0,
+    "windDeg": 315
+  },
+  "Москва": {
+    "temperature": 4.0,
+    "description": "облачно с прояснениями",
+    "windSpeed": 4.5,
+    "windDeg": 240
+  },
+  "Санкт-Петербург": {
+    "temperature": 3.0,
+    "description": "небольшой дождь",
+    "windSpeed": 5.5,
+    "windDeg": 270
+  },
+  "Новосибирск": {
+    "temperature": -6.0,
+    "description": "пасмурно",
+    "windSpeed": 3.2,
+    "windDeg": 180
+  },
+  "Красноярск": {
+    "temperature": -5.0,
+    "description": "небольшой снег",
+    "windSpeed": 3.0,
+    "windDeg": 290
+  },
+  "Сочи": {
+    "temperature": 16.0,
+    "description": "солнечно",
+    "windSpeed": 2.1,
+    "windDeg": 150
+  },
+  "Владивосток": {
+    "temperature": 2.0,
+    "description": "переменная облачность",
+    "windSpeed": 6.8,
+    "windDeg": 45
+  }
+}
