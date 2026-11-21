@@ -14,10 +14,7 @@ class MemorinaUnitTest {
             deck.add(imageRes)
         }
 
-        // Всего 16 карт (4x4)
         assertEquals(16, deck.size)
-
-        // Каждая картинка встречается ровно 2 раза (пары)
         for (imageRes in cardImages) {
             val count = deck.count { it == imageRes }
             assertEquals(2, count)
@@ -55,5 +52,32 @@ class MemorinaUnitTest {
         for (row in rows) {
             assertEquals(4, row.size)
         }
+    }
+
+    @Test
+    fun testCardMatchingCondition() {
+        val firstTag = 100
+        val matchingSecondTag = 100
+        val nonMatchingSecondTag = 200
+
+        assertTrue(firstTag == matchingSecondTag)
+        assertFalse(firstTag == nonMatchingSecondTag)
+    }
+
+    @Test
+    fun testWinConditionWhenAllInvisible() {
+        // Симулируем 16 карт
+        val cardVisibility = MutableList(16) { 0 } // 0 - видима
+
+        fun isWin(list: List<Int>) = list.all { it == 4 } // 4 - View.INVISIBLE
+
+        assertFalse(isWin(cardVisibility))
+
+        // Убираем все карты
+        for (i in 0 until 16) {
+            cardVisibility[i] = 4
+        }
+
+        assertTrue(isWin(cardVisibility))
     }
 }

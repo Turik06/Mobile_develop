@@ -2,10 +2,12 @@ package com.example.memorinak
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         R.drawable.card_cloud
     )
 
+    val cardViews = ArrayList<ImageView>()
+    var firstCard: ImageView? = null
+    var openCardsCount = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             deck.add(img)
         }
         deck.shuffle()
+        Log.d("Memorina", "deck=$deck")
 
         val params = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
             weight = 1f
@@ -48,17 +55,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         // создаем 16 карт, изначально рубашкой вверх
-        val cardViews = ArrayList<ImageView>()
         for (i in 0 until 16) {
-            cardViews.add(
-                ImageView(this).apply {
-                    setImageResource(R.drawable.card_back)
-                    layoutParams = params
-                    adjustViewBounds = true
-                    tag = deck[i] // в тег кладем ресурс лицевой стороны
-                    setOnClickListener(colorListener)
-                }
-            )
+            val cardView = ImageView(this).apply {
+                setImageResource(R.drawable.card_back)
+                layoutParams = params
+                adjustViewBounds = true
+                tag = deck[i] // в тег кладем ресурс лицевой стороны
+                setOnClickListener(colorListener)
+            }
+            cardViews.add(cardView)
         }
 
         // раскладываем по 4 карты в 4 строки
@@ -77,25 +82,61 @@ class MainActivity : AppCompatActivity() {
         setContentView(layout)
     }
 
-    // переворот карты с задержкой
-    suspend fun setBackgroundWithDelay(v: View) {
-        val iv = v as? ImageView ?: return
-        val faceRes = iv.tag as? Int ?: return
+    // проверка двух открытых карт
+    suspend fun openCards(secondCard: ImageView) {
+        val first = firstCard ?: return
 
-        // открываем карту
-        iv.setImageResource(faceRes)
-        iv.isClickable = false
+        if (first.tag == secondCard.tag) {
+            // если совпали - убираем с поля
+            delay(500)
+            first.visibility = View.INVISIBLE
+            secondCard.visibility = View.INVISIBLE
+            checkWin()
+        } else {
+            // если разные - ждем секунду и закрываем
+            delay(1000)
+            first.setImageResource(R.drawable.card_back)
+            secondCard.setImageResource(R.drawable.card_back)
+            first.isClickable = true
+            secondCard.isClickable = true
+        }
 
-        delay(1000)
-
-        // закрываем обратно
-        iv.setImageResource(R.drawable.card_back)
-        iv.isClickable = true
+        firstCard = null
+        openCardsCount = 0
     }
 
-    val colorListener = View.OnClickListener {
-        GlobalScope.launch(Dispatchers.Main) {
-            setBackgroundWithDelay(it)
+    // обработчик клика по карте
+    val colorListener = View.OnClickListener { v ->
+        val card = v as? ImageView ?: return@OnClickListener
+
+        when (openCardsCount) {
+            0 -> {
+                // открыли первую карту
+                firstCard = card
+                card.setImageResource(card.tag as Int)
+                card.isClickable = false
+                openCardsCount = 1
+            }
+            1 -> {
+                // открыли вторую карту
+                card.setImageResource(card.tag as Int)
+                card.isClickable = false
+                openCardsCount = 2
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    openCards(card)
+                }
+            }
+            else -> {
+                // две карты уже открыты, ничего не делаем
+            }
+        }
+    }
+
+    // проверка на выигрыш (когда все карты исчезли)
+    fun checkWin() {
+        if (cardViews.isNotEmpty() && cardViews.all { it.visibility == View.INVISIBLE }) {
+            Toast.makeText(this, "Вы выиграли!", Toast.LENGTH_SHORT).show()
         }
     }
 }
